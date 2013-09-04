@@ -1,4 +1,4 @@
 PayTheArtist
 ============
 
-Website and applet allowing consumers to pay artists directly with suggestions based on their personal files.
+Website and applet allowing supporters to donate to artists directly with suggestions based on their personal files.
