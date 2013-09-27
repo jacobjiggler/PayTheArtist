@@ -1,7 +1,16 @@
 Paytheartist::Application.routes.draw do
-  controller :controller_controller do 
-    get "/controller" => :index
-  end
+  resources :splits
+
+  root :to => 'controller#index'
+
+  get "/welcome" => "controller#welcome"
+
+  # controller :controller do 
+  #   get "/controller" => :index
+  #   get "/welcome" => "controller#welcome"
+  # end
+
+
 
  
   # The priority is based upon order of creation: first created -> highest priority.
@@ -58,5 +67,5 @@ Paytheartist::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  root :to => 'controller#index'
+
 end
