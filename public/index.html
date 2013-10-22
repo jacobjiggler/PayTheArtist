@@ -5,8 +5,47 @@
 		<title>Pay The Artist</title>
 		<link href="style.css" rel="stylesheet" type="text/css" />
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js'></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
         <script src='bootstrap.js'></script>        
         <!--<script type='text/javascript' src='script.js'></script>-->
+        	<script type="text/javascript">
+
+		var totalAmount = jQuery("#total").val();
+		var artists = new Array("artist1");
+		var percents = new Array("amount1");
+		var amounts = new Array(0);
+
+		function addArtist() {
+		  input = jQuery('<p>Artist '+(artists.length+1)+':  <input type = "text" name = "artist'+(artists.length+1)+'"/></p><p>Percent: <input type = "number" name = "amount'+(artists.length+1)+'" value = "0"/>%</p><p id = "splitAmount'+(artists.length+1)+'">Amount: $<span id="fill'+(artists.length+1)+'"></span></p><br/><br/>');
+		  console.log("addArtist was run");
+		  jQuery('#artists').append(input);
+		  artists[artists.length] = "artist" + (artists.length + 1);  
+		};
+
+		function updateValues() {
+		  console.log("updateValues run");
+		  var percentTotal = 0;
+		  for (i = 1; i <= artists.length; i++) {
+		    var percentTotal = percentTotal + parseFloat($("input[name=amount"+i+"]").val());
+		    artists[i-1] = $("input[name=artist"+i+"]").val();
+		    percents[i-1] = $("input[name=amount"+i+"]");
+		  }
+		  if (percentTotal != 100 && artists.length != 1) {
+		    alert("Your percentages don't add up to 100!");
+		    return false;
+		  } else if (parseInt(percentTotal) === 100) {
+		    
+		    for (i = 1; i <= artists.length; i++) {
+		      amounts[i-1] = Math.round((parseFloat($("input[name=amount"+i+"]").val()) / 100 * parseFloat($("#total").val()))*100)/100.0;
+		    }
+		  }
+		  for (i = 1; i <= artists.length; i++) {
+		    $("#fill"+i).text(amounts[i-1]);
+		  }  
+		};     
+		
+
+	</script>
     </head>
     <body>
         <div id="wrapper">
@@ -51,6 +90,18 @@
 						</div>						
 					</div>
 			-->	
+				<form>
+		Total you want to pay: $<input type = "number" id = "total" value="0" /><br/><br/>
+		<div id = "artists">
+			<p>Artist 1:  <input type = "text" name = "artist1"/></p> 
+			<p>Percent: <input type = "number" name = "amount1" value = "0"/>%</p>
+			<p id = "splitAmount1" style = "float: left">Amount: $<span id="fill1"></span></p> <br/> <br/>
+		</div>
+		<div style = "clear: both;">
+			<button onClick ="addArtist()" type="button">Add Artist</button>
+			<button onClick = "updateValues()" type = "button">Update Values</button>
+		</div>
+	</form>
                 <h1>
                     <div class="apptext">Application Space</div>
                     <!--<div class="appbox"><img src="http://placehold.it/700x500"></div>-->
