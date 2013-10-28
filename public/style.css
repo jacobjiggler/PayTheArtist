@@ -104,7 +104,7 @@ footer > * {
     margin-right: 20px;
 }
 
-.application > :first-child {
+.application  {
     height: 700px;
     text-align: center;
     padding: 50px 0 20px 0;
@@ -130,7 +130,11 @@ footer > * {
 #youtube {
     float: right;
 }
-img{
-height:40px;
-width:40px;
+
+img {
+	height:40px;
+	width:40px;
+}
+form {
+	    padding-top: 50px;
 } 	
