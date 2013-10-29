@@ -42,9 +42,7 @@
 		  for (i = 1; i <= artists.length; i++) {
 		    $("#fill"+i).text(amounts[i-1]);
 		  }  
-		};     
-		
-
+		}; 
 	</script>
     </head>
     <body>
@@ -59,23 +57,24 @@
                     </h1>
                     <h2>
                         <span class="headerbar">
-                        	<span class="Mission-header">
-                                <a href="#">Our Mission</a>
-                            </span>
-                            <span class="About-header">
+                            <span id="About-header">
                                 <a href="#">About us</a>
                             </span>
-                            <span class="FAQ-header">
+                            <span id="FAQ-header">
                                 <a href="#">FAQ</a>
                             </span>
-                             <span class="Contact-header">
+                             <span id="Contact-header">
                                 <a href="#">Contact</a>
                             </span>
-                             <span class="Legal-header">
+                             <span id="Legal-header">
                                 <a href="#">Legal</a>
+                            </span>
+                            <span id="Login-header">
+                                <a href="#">Login</a>
                             </span>
                         </span>
                     </h2>
+                    <!--<div id="about-content">This material will be contained in the about</div>-->
                 </hgroup>
             </header>
             <div id="main" class="application">
@@ -91,21 +90,21 @@
 					</div>
 			-->	
 				<form>
-		Total you want to pay: $<input type = "number" id = "total" value="0" /><br/><br/>
-		<div id = "artists">
-			<p>Artist 1:  <input type = "text" name = "artist1"/></p> 
-			<p>Percent: <input type = "number" name = "amount1" value = "0"/>%</p>
-			<p id = "splitAmount1" style = "float: left">Amount: $<span id="fill1"></span></p> <br/> <br/>
-		</div>
-		<div style = "clear: both;">
-			<button onClick ="addArtist()" type="button">Add Artist</button>
-			<button onClick = "updateValues()" type = "button">Update Values</button>
-		</div>
-	</form>
-                <h1>
+                    Total you want to donate: $<input type = "number" id = "total" value="0" /><br/><br/>
+                    <div id = "artists">
+                        <p>Artist 1:  <input type = "text" name = "artist1"/></p> 
+                        <p>Percent: <input type = "number" name = "amount1" value = "0"/>%</p>
+                        <p id = "splitAmount1">Amount: $<span id="fill1"></span></p> <br/> <br/>
+                    </div>
+                    <div style = "clear: both;">
+                        <button onClick ="addArtist()" type="button">Add Artist</button>
+                        <button onClick = "updateValues()" type = "button">Update Values</button>
+                    </div>
+                </form>
+                <!--<h1>
                     <div class="apptext">Application Space</div>
-                    <!--<div class="appbox"><img src="http://placehold.it/700x500"></div>-->
-                </h1>
+                    <div class="appbox"><img src="http://placehold.it/700x500"></div>
+                </h1>-->
             </div>
             <footer>
                 <span class="footer_section">
