@@ -8,6 +8,9 @@
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js'></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
         <script src='../app/assets/javascript/bootstrap.js'></script>        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+        <script src="/twitter-bootstrap/twitter-bootstrap-v2/js/bootstrap-modal.js"></script> 
+
         <!--<script type='text/javascript' src='script.js'></script>-->
         	<script type="text/javascript">
 
@@ -79,10 +82,10 @@
                 </hgroup>
             </header>
             <div id="main" class="application">
-	            <h1>
+	            <!--<h1>
 	                <div class="apptext">Application Space</div>
-	                    <!--<div class="appbox"><img src="http://placehold.it/700x500"></div>-->
-	            </h1>
+	                    <div class="appbox"><img src="http://placehold.it/700x500"></div>
+	            </h1>-->
 	            
 	            <div style="float: right; padding-right: 10px">
 	            	<input type = "text" id = "artist_search" value="Artist Search" />
@@ -98,18 +101,33 @@
 						</div>						
 					</div>
 			-->	
-				<form>
-		Total you want to pay: $<input type = "number" id = "total" value="0" /><br/><br/>
-		<div id = "artists">
-			<p>Artist 1:  <input type = "text" name = "artist1"/></p> 
-			<p>Percent: <input type = "number" name = "amount1" value = "0"/>%</p>
-			<p id = "splitAmount1" > <!-- style = "float: left" --> Amount: $<span id="fill1"></span></p> <br/> <br/>
-		</div>
-		<div style = "clear: both;">
-			<button onClick ="addArtist()" type="button">Add Artist</button>
-			<button onClick = "updateValues()" type = "button">Update Values</button>
-		</div>
-	</form>
+                <div  id="form-box">
+                    <form>
+                        <p>
+                            Total you want to pay 
+                            <span class='appfield'>
+                                <input type = "number" id = "total" value="0" /><br/>
+                            </span>
+                        </p>
+                        <div id = "artists">
+                            <p>Artist 1:  
+                                <span class='appfield'>
+                                    <input type = "text" name = "artist1"/>
+                                </span>
+                            </p> 
+                            <p>Percent: 
+                                <span class='appfield'>
+                                    <input type = "number" name = "amount1" value = "0"/>
+                                </span>
+                           </p>
+                            <p id = "splitAmount1" > <!-- style = "float: left" --> Amount: $<span id="fill1"></span></p> <br/> <br/>
+                        </div>
+                        <div style = "clear: both;">
+                            <button onClick ="addArtist()" type="button">Add Artist</button>
+                            <button onClick = "updateValues()" type = "button">Update Values</button>
+                        </div>
+                    </form>
+                </div>
 
 
             </div>
