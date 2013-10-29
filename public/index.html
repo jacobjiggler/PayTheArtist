@@ -42,9 +42,7 @@
 		  for (i = 1; i <= artists.length; i++) {
 		    $("#fill"+i).text(amounts[i-1]);
 		  }  
-		};     
-		
-
+		}; 
 	</script>
     </head>
     <body>
@@ -59,23 +57,24 @@
                     </h1>
                     <h2>
                         <span class="headerbar">
-                        	<span class="Mission-header">
-                                <a href="#">Our Mission</a>
-                            </span>
-                            <span class="About-header">
+                            <span id="About-header">
                                 <a href="#">About us</a>
                             </span>
-                            <span class="FAQ-header">
+                            <span id="FAQ-header">
                                 <a href="#">FAQ</a>
                             </span>
-                             <span class="Contact-header">
+                             <span id="Contact-header">
                                 <a href="#">Contact</a>
                             </span>
-                             <span class="Legal-header">
+                             <span id="Legal-header">
                                 <a href="#">Legal</a>
+                            </span>
+                            <span id="Login-header">
+                                <a href="#">Login</a>
                             </span>
                         </span>
                     </h2>
+                    <!--<div id="about-content">This material will be contained in the about</div>-->
                 </hgroup>
             </header>
             <div id="main" class="application">
@@ -109,6 +108,7 @@
 			<button onClick = "updateValues()" type = "button">Update Values</button>
 		</div>
 	</form>
+
 
             </div>
             <footer>
