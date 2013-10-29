@@ -123,6 +123,10 @@ footer > * {
     color: #222;
 }
 
+.modal-header, .modal-footer {
+    background-color: #f4f4f4;
+}
+
 .application{
     height: 700px;
     text-align: center;
