@@ -11,7 +11,6 @@
         <script type="text/javascript" charset="utf-8" src='../app/assets/javascripts/bootstrap-modal.js'></script>
        -->
        <script src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'></script>
-         
         	<script type="text/javascript">
 
 		var totalAmount = jQuery("#total").val();
@@ -83,28 +82,43 @@
                 </hgroup>
             </header>
             <div id="main" class="application">
-	            <h1>
+	            <!--<h1>
 	                <div class="apptext">Application Space</div>
-	                    <!--<div class="appbox"><img src="http://placehold.it/700x500"></div>-->
-	            </h1>
+	                    <div class="appbox"><img src="http://placehold.it/700x500"></div>
+	            </h1>-->
 	            
 	            <div style="float: right; padding-right: 10px">
 	            	<input type = "text" id = "artist_search" value="Artist Search" />
 	            </div>
 
- 
-				<form>
-		Total you want to pay: $<input type = "number" id = "total" value="0" /><br/><br/>
-		<div id = "artists">
-			<p>Artist 1:  <input type = "text" name = "artist1"/></p> 
-			<p>Percent: <input type = "number" name = "amount1" value = "0"/>%</p>
-			<p id = "splitAmount1" > <!-- style = "float: left" --> Amount: $<span id="fill1"></span></p> <br/> <br/>
-		</div>
-		<div style = "clear: both;">
-			<button onClick ="addArtist()" type="button">Add Artist</button>
-			<button onClick = "updateValues()" type = "button">Update Values</button>
-		</div>
-	</form>
+                <div  id="form-box">
+                    <form>
+                        <p>
+                            Total you want to pay 
+                            <span class='appfield'>
+                                <input type = "number" id = "total" value="0" /><br/>
+                            </span>
+                        </p>
+                        <div id = "artists">
+                            <p>Artist 1:  
+                                <span class='appfield'>
+                                    <input type = "text" name = "artist1"/>
+                                </span>
+                            </p> 
+                            <p>Percent: 
+                                <span class='appfield'>
+                                    <input type = "number" name = "amount1" value = "0"/>
+                                </span>
+                           </p>
+                            <p id = "splitAmount1" > <!-- style = "float: left" --> Amount: $<span id="fill1"></span></p> <br/> <br/>
+                        </div>
+                        <div style = "clear: both;">
+                            <button onClick ="addArtist()" type="button">Add Artist</button>
+                            <button onClick = "updateValues()" type = "button">Update Values</button>
+                        </div>
+                    </form>
+                </div>
+
 
 	<div id="about" class="modal hide fade in" style="display: none; ">  
 		<div class="modal-header">  
