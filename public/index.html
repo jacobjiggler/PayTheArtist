@@ -3,12 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Pay The Artist</title>
-		<link href="../app/assets/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="../app/assets/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
 		<link href="style.css" rel="stylesheet" type="text/css" />
-        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js'></script>
-        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
-        <script src='../app/assets/javascript/bootstrap.js'></script>        
-        <!--<script type='text/javascript' src='script.js'></script>-->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>      
+      <!--  <script src='../app/assets/javascripts/bootstrap.js'></script> 
+        <script type="text/javascript" charset="utf-8" src='../app/assets/javascripts/bootstrap-modal.js'></script>
+       -->
+       <script src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'></script>
+         
         	<script type="text/javascript">
 
 		var totalAmount = jQuery("#total").val();
@@ -44,6 +47,7 @@
 		    $("#fill"+i).text(amounts[i-1]);
 		  }  
 		}; 
+		
 	</script>
     </head>
     <body>
@@ -59,7 +63,7 @@
                     <h2>
                         <span class="headerbar">
                             <span id="About-header">
-                                <a data-toggle="modal" href="#about">About us</a>
+                                <a data-toggle="modal" href="#about" role="button">About us</a>
                             </span>
                             <span id="FAQ-header">
                                 <a data-toggle="modal" href="#faq">FAQ</a>
@@ -87,17 +91,8 @@
 	            <div style="float: right; padding-right: 10px">
 	            	<input type = "text" id = "artist_search" value="Artist Search" />
 	            </div>
-<!--            		<div class="Mission" style="display:none">
-						<div class="Mission-header">
-							<h3 style="text-align:center">Mission</h3>
-						
-							<button type="button" class="close" style="text-align:right">x</button>
-						</div>
-						<div class="Mission-body">
-							<p>Mission body</p>
-						</div>						
-					</div>
-			-->	
+
+ 
 				<form>
 		Total you want to pay: $<input type = "number" id = "total" value="0" /><br/><br/>
 		<div id = "artists">
@@ -111,7 +106,74 @@
 		</div>
 	</form>
 
+	<div id="about" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>About Us</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p>We are a group of students at Rensselaer Polytechnic Institute, who simply believe that most artists don't make enough money for their creations. Our team includes mostly students majoring in computer science or technology related fields. With our technical backgrounds we set out to create a site that would allow direct donation to artists. This project has been in development since fall 2013.</p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="faq" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Frequently Asked Questions</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p style="font-weight: bold">How do you know we will distribute all the funds to artists</p>    
+			<p>We are a non-profit, university backed, open source, organization interested only in helping out artists. We take no funding for ourselves. We pay for server costs with funding from <a href="http://rcos.rpi.edu/" target="_blank">RCOS</a></p>  
+			<p style="font-weight: bold"> What happens if we can't contact the artist or they won't accept donations? </p>    
+			<p> After a preset time, all funding not accepted by artists is donated to the charity <a href="http://www.fendermusicfoundation.org" target=" blank">fender music foundation</a> so that no matter what, your donations make a difference.</p>      
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="contact" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Contact Us</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p>Jacob Martin - <a href="mailto:martij24@rpi.edu">martij24@rpi.edu</a></p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
 
+	<div id="legal" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Legal</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p> to be written </p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="login" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Login</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p><input type = "text" id = "username" value="Username" /></p>  
+			<p><input type = "text" id = "password" value="Password" /></p>              
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
             </div>
             <footer>
                 <span class="footer_section">
@@ -136,5 +198,10 @@
                 <img src="../app/assets/images/yt.png" id="youtube">
             </footer>
         </div>
+	<script>
+	  $(document).ready(function() {
+    $("#example").modal();
+  });
+	</script>        
     </body>
 </html>

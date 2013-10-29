@@ -16,12 +16,12 @@ html  > * {
 
 }
 
-a[href] {
+hgroup a[href] {
 	color: #eee;
     text-decoration: none;
 }
 
-a[href]:hover {
+hgroup a[href]:hover {
     color: #09f
 }
 
