@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @split.total %>
+  <% @split.artists.each do |a| %>
+  	<br/>
+  	<p><%= a.name %></p>
+  	<% a.amounts.each do |p| %>
+  		<p><%= p.percent %></p>
+  		<p><%= p.amount %></p>
+  	<% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_split_path(@split) %> |
+<%= link_to 'Back', splits_path %>

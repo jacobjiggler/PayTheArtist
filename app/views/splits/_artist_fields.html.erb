@@ -1,0 +1,13 @@
+<p class = "fields">
+	<%= f.label :name, "Artist Name" %>
+	<%= f.text_field :name %>
+
+	<%= f.fields_for :amounts do |builder| %>
+		<%= render 'amount_fields', :f => builder %>
+	<% end %>
+	
+	<%= f.hidden_field :_destroy %><br/>
+	<%= link_to_function "Remove Artist", "remove_fields(this)" %>
+	<br/>
+	<br/>
+</p>

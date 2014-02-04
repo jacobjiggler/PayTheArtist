@@ -1,0 +1,27 @@
+<h1>Listing splits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @splits.each do |split| %>
+      <tr>
+        <td><%= split.total %></td>
+        <td><%= link_to 'Show', split %></td>
+        <td><%= link_to 'Edit', edit_split_path(split) %></td>
+        <td><%= link_to 'Destroy', split, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Split', new_split_path %>
