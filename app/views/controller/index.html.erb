@@ -1,2 +1,221 @@
-<h1>Pay The Artist Temp Page</h1>
-<p>This page is being replaced</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Pay The Artist</title>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>      
+      <!--  <script src='../app/assets/javascripts/bootstrap.js'></script> 
+        <script type="text/javascript" charset="utf-8" src='../app/assets/javascripts/bootstrap-modal.js'></script>
+       -->
+       <script src='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'></script>
+       <script type="text/javascript">
+
+		var totalAmount = jQuery("#total").val();
+		var artists = new Array("artist1");
+		var percents = new Array("amount1");
+		var amounts = new Array(0);
+
+		function addArtist() {
+		  input = jQuery('<p>Artist '+(artists.length+1)+':  <input type = "text" name = "artist'+(artists.length+1)+'"/></p><p>Percent: <input type = "number" name = "amount'+(artists.length+1)+'" value = "0"/>%</p><p id = "splitAmount'+(artists.length+1)+'">Amount: $<span id="fill'+(artists.length+1)+'"></span></p><br/><br/>');
+		  console.log("addArtist was run");
+		  jQuery('#artists').append(input);
+		  artists[artists.length] = "artist" + (artists.length + 1);  
+		};
+
+		function updateValues() {
+		  console.log("updateValues run");
+		  var percentTotal = 0;
+		  for (i = 1; i <= artists.length; i++) {
+		    var percentTotal = percentTotal + parseFloat($("input[name=amount"+i+"]").val());
+		    artists[i-1] = $("input[name=artist"+i+"]").val();
+		    percents[i-1] = $("input[name=amount"+i+"]");
+		  }
+		  if (percentTotal != 100 && artists.length != 1) {
+		    alert("Your percentages don't add up to 100!");
+		    return false;
+		  } else if (parseInt(percentTotal) === 100) {
+		    
+		    for (i = 1; i <= artists.length; i++) {
+		      amounts[i-1] = Math.round((parseFloat($("input[name=amount"+i+"]").val()) / 100 * parseFloat($("#total").val()))*100)/100.0;
+		    }
+		  }
+		  for (i = 1; i <= artists.length; i++) {
+		    $("#fill"+i).text(amounts[i-1]);
+		  }  
+		}; 
+		
+	</script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <hgroup>
+                     <img src="../app/assets/images/RobinTunes.png" id="logo">
+                     <%= image_tag("RobinTunes.png") %>
+                    <h1>
+                        <span>
+                            <a rel="bookmark" href="index.html">Pay The Artist</a>
+                        </span>
+                    </h1>
+                    <h2>
+                        <span class="headerbar">
+                            <span id="About-header">
+                                <a data-toggle="modal" href="#about" role="button">About us</a>
+                            </span>
+                            <span id="FAQ-header">
+                                <a data-toggle="modal" href="#faq">FAQ</a>
+                            </span>
+                             <span id="Contact-header">
+                                <a data-toggle="modal" href="#contact">Contact</a>
+                            </span>
+                             <span id="Legal-header">
+                                <a data-toggle="modal" href="#legal">Legal</a>
+                            </span>
+                            <span id="Login-header">
+                                <a data-toggle="modal" href="#login">Login</a>
+                            </span>
+                        </span>
+                    </h2>
+                    <!--<div id="about-content">This material will be contained in the about</div>-->
+                </hgroup>
+            </header>
+            <div id="main" class="application">
+	            <!--<h1>
+	                <div class="apptext">Application Space</div>
+	                    <div class="appbox"><img src="http://placehold.it/700x500"></div>
+	            </h1>-->
+	            
+	            <div style="float: right; padding-right: 10px">
+	            	<input type = "text" id = "artist_search" value="Artist Search" />
+	            </div>
+
+                <div  id="form-box">
+                    <form>
+                        <p>
+                            Total you want to pay 
+                            <span class='appfield'>
+                                <input type = "number" id = "total" value="0" /><br/>
+                            </span>
+                        </p>
+                        <div id = "artists">
+                            <p>Artist 1:  
+                                <span class='appfield'>
+                                    <input type = "text" name = "artist1"/>
+                                </span>
+                            </p> 
+                            <p>Percent: 
+                                <span class='appfield'>
+                                    <input type = "number" name = "amount1" value = "0"/>
+                                </span>
+                           </p>
+                            <p id = "splitAmount1" > <!-- style = "float: left" --> Amount: $<span id="fill1"></span></p> <br/> <br/>
+                        </div>
+                        <div style = "clear: both;">
+                            <button onClick ="addArtist()" type="button">Add Artist</button>
+                            <button onClick = "updateValues()" type = "button">Update Values</button>
+                        </div>
+                    </form>
+                </div>
+
+
+	<div id="about" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>About Us</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p>We are a group of students at Rensselaer Polytechnic Institute, who simply believe that most artists don't make enough money for their creations. Our team includes mostly students majoring in computer science or technology related fields. With our technical backgrounds we set out to create a site that would allow direct donation to artists. This project has been in development since fall 2013.</p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="faq" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Frequently Asked Questions</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p style="font-weight: bold">How do you know we will distribute all the funds to artists</p>    
+			<p>We are a non-profit, university backed, open source, organization interested only in helping out artists. We take no funding for ourselves. We pay for server costs with funding from <a href="http://rcos.rpi.edu/" target="_blank">RCOS</a></p>  
+			<p style="font-weight: bold"> What happens if we can't contact the artist or they won't accept donations? </p>    
+			<p> After a preset time, all funding not accepted by artists is donated to the charity <a href="http://www.fendermusicfoundation.org" target=" blank">fender music foundation</a> so that no matter what, your donations make a difference.</p>      
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="contact" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Contact Us</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p>Jacob Martin - <a href="mailto:martij24@rpi.edu">martij24@rpi.edu</a></p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+
+	<div id="legal" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Legal</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p> to be written </p>                
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+	
+	<div id="login" class="modal hide fade in" style="display: none; ">  
+		<div class="modal-header">  
+			<a class="close" data-dismiss="modal">×</a>  
+			<h3>Login</h3>  
+		</div>  
+		<div class="modal-body">  
+			<p><input type = "text" id = "username" value="Username" /></p>  
+			<p><input type = "text" id = "password" value="Password" /></p>              
+		</div>  
+		<div class="modal-footer">  
+			<a href="#" class="btn btn-success" data-dismiss="modal">Close</a>  
+		</div>  
+	</div>  
+            </div>
+            <footer>
+                <span class="footer_section">
+                    <p>Mentor</p>
+                    <p>David Vorick</p>
+                </span>
+                <span class="footer_section">
+                    <p>Web Designer</p>
+                    <p>Andrew Morris</p>
+                </span>
+                <span class="footer_section">
+                    <p>Rails Application</p>
+                    <p>Jacob Martin</p>
+                    <p>Jazmine Oligner</p>
+                    <p>Brian Kelley</p>
+                </span>
+                <span class="footer_section">
+                    <p>PAY THE ARTIST 2013</p>
+                </span>
+                <img src="../app/assets/images/twitter.png" id="twitter">
+                <img src="../app/assets/images/facebook.png" id="facebook">
+                <img src="../app/assets/images/rss.png" id="rss">
+            </footer>
+        </div>
+	<script>
+	  $(document).ready(function() {
+    $("#example").modal();
+  });
+	</script>        
+    </body>
+</html>

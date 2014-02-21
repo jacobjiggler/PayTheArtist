@@ -1,9 +1,11 @@
 Paytheartist::Application.routes.draw do
-  resources :splits
 
   root :to => 'controller#index'
 
   get "/welcome" => "controller#welcome"
+
+  resources :splits
+
 
   # controller :controller do 
   #   get "/controller" => :index

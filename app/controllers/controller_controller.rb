@@ -1,7 +1,8 @@
 class ControllerController < ApplicationController
-  def welcome
+  
+  def index
   end
 
-  def index
+  def welcome
   end
 end
