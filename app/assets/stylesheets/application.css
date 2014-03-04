@@ -95,7 +95,7 @@ footer > * {
 }
 
 .headerlink {
-    text-transform: uppercase;
+	text-transform: uppercase;
     padding-left: 40px;
     font-size: 30px;
 }
@@ -138,14 +138,14 @@ footer > * {
 }
 
 .modal-header, .modal-footer {
-    background-color: #f4f4f4;
+    background-color: #fff
 }
 
 .application{
     height: 700px;
     text-align: center;
     padding: 20px 10px 20px 0;
-    background-color: #eee;
+    background-color: #f2f2f2;
 }
 
 #form-box {
