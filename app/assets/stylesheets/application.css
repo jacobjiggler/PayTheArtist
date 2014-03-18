@@ -14,6 +14,7 @@
  */
 @charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Lato:100,400);
+@import url(http://fonts.googleapis.com/css?family=Ropa+Sans);
 
 * {
     margin: 0;
@@ -41,7 +42,7 @@ hgroup a[href] {
 }
 
 body {
-    font-family: "Open Sans";
+    font-family: "Open Sans", Arial;
     height: 100%;
     width: 100%;
 }
