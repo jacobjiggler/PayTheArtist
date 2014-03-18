@@ -54,7 +54,11 @@ header {
     border-bottom-width: 1px;
     border-bottom-color: #09f;
     min-height: 60px;
-    min-width: 1920px;
+   	
+    /* position: fixed; */
+    min-width: 1500px;
+    max-width: 1920px;
+    /* left: 0px; */	
 }
 
 .home {
